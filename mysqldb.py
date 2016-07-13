@@ -134,5 +134,5 @@ class mysqldb:
 
     
 s={"classnames":"aa"}
-a=mysqldb('localhost','root','note123.','sign','class')
+a=mysqldb('localhost','root','root','sign','class')
 print a.Insert(s)
