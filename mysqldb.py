@@ -5,19 +5,20 @@ import MySQLdb
 class mysqldb:
     conn=''
     cur=''
-    def __init__(self,host,user,passwd,db,tableName=''):
+    def __init__(self,host,user,passwd,db,tableName='',port=3306):
         self.host=host
         self.user=user
         self.passwd=passwd
         self.db=db
+        self.port=port
         self.connection()
         self.tableName=tableName
-    if tableName != '':
-        self.__GetFiled(self.tableName)
+        if tableName != '':
+        		self.__GetFiled(self.tableName)
     #init mysql connetction
     def connection(self):
         try:
-            self.conn=MySQLdb.connect(host=self.host,user=self.user,passwd=self.passwd,db=self.db,port=3306)
+            self.conn=MySQLdb.connect(host=self.host,user=self.user,passwd=self.passwd,db=self.db,port=self.port)
             self.cur =self.conn.cursor(cursorclass = MySQLdb.cursors.DictCursor)
         except MySQLdb.Error,e:
             print "MYSQL ERROR %d %s" % (e.args[0],e.args[1])
@@ -133,6 +134,5 @@ class mysqldb:
         self.conn.close()
 
     
-s={"classnames":"aa"}
-a=mysqldb('localhost','root','root','sign','class')
-print a.Insert(s)
+a=mysqldb('localhost','root','root','stu','config')
+print a
