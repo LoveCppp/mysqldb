@@ -14,7 +14,7 @@ class mysqldb:
         self.connection()
         self.tableName=tableName
         if tableName != '':
-        		self.__GetFiled(self.tableName)
+            self.__GetFiled(self.tableName)
     #init mysql connetction
     def connection(self):
         try:
